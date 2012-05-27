@@ -1,0 +1,12 @@
+{
+    "name": "racer/x",
+    "description": "the RacerX",
+    "keywords": ["event-loop", "libuv"],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "psr-0": { "Racer": "src" }
+    }
+}

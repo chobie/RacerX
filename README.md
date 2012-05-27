@@ -6,15 +6,34 @@ whh,whattttt an amazing speeeeeeeeeeeed!
 
 ```
 <?php
-require __DIR__ . "/../src/Racer/X.php";
+require __DIR__ . '/../vendor/autoload.php';
+require "debug.php";
 
-$x = new Racer\X();
+use Racer\X\Request;
+use Racer\X\Response;
 
-$x->get("/",function(){
-    return "Hello";
+$x = new Racer\X(function($app){
+    $count = 0;
+
+    $app->get("/",function(Request $req) use (&$count){
+        $count++;
+        switch ($count) {
+            case 1:
+                $suffix = "st";
+                break;
+            case 2:
+                $suffix = "nd";
+                break;
+            case 3:
+                $suffix = "rd";
+                break;
+            default:
+                $suffix = "th";
+        }
+        return new Response("Hello. you are the {$count}{$suffix} visitor.");
+    });
 });
-
-$x->listen(8888);
+$x->sacrifice(8888);
 ````
 
 # Dependencies
