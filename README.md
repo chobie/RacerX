@@ -4,7 +4,7 @@ whh,whattttt an amazing speeeeeeeeeeeed!
 
 # Examples
 
-```
+````php
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 require "debug.php";
@@ -39,7 +39,12 @@ $x->sacrifice(8888);
 # Dependencies
 
 * php-uv
+
+https://github.com/chobie/php-uv
+
 * php-httpparser
+
+https://github.com/chobie/php-httpparser
 
 # License
 
