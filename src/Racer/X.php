@@ -28,9 +28,8 @@ class X
                 
                 $result = array();
                 if (http_parser_execute($parser, $buffer, $result)){
-                    $query = parse_url($result['url'],PHP_URL_PATH);
-                    if(isset($cb->controllers[$query])) {
-                        $r = $cb->controllers[$query]();
+                    if(isset($cb->controllers[$result['path']])) {
+                        $r = $cb->controllers[$result['path']]();
                         
                         $buffer = "HTTP 1.0 200 OK\n\n$r";
                         uv_write($client, $buffer, function($c) use ($client){
